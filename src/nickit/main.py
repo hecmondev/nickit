@@ -1,6 +1,12 @@
+from .version import get_cli_version
 import typer
 
 app = typer.Typer()
+
+
+@app.command()
+def version():
+    get_cli_version()
 
 
 @app.command()
@@ -8,7 +14,7 @@ def greet(name: str, twice: bool = False):
     """
     A simple greeting CLI utility using Typer.
     """
-    greeting = f"Hello, {name}!"
+    greeting = f'Hello, {name}!'
     typer.echo(greeting)
     if twice:
         typer.echo(greeting)
@@ -19,7 +25,7 @@ def goodbye(name: str):
     """
     Bid farewell to someone.
     """
-    typer.echo(f"Goodbye, {name}!")
+    typer.echo(f'Goodbye, {name}!')
 
 
 def run():
