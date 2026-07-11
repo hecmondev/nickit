@@ -6,7 +6,14 @@ app = typer.Typer()
 
 @app.command()
 def version():
+    """To get the current cli version installed"""
     get_cli_version()
+
+
+@app.command()
+def create():
+    with open('example.txt', 'w') as file:
+        file.write('Hello, this is a newly created file!')
 
 
 @app.command()
