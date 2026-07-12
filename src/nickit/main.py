@@ -11,12 +11,6 @@ def version():
 
 
 @app.command()
-def create():
-    with open('example.txt', 'w') as file:
-        file.write('Hello, this is a newly created file!')
-
-
-@app.command()
 def greet(name: str, twice: bool = False):
     """
     A simple greeting CLI utility using Typer.
