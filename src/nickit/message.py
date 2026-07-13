@@ -13,3 +13,16 @@ def show_success_message(message: str, bold=False, background=False):
     else:
         styled = style(message, fg=colors.GREEN)
         echo(styled)
+
+
+def show_information_message(message: str, bold=False, background=False):
+    if bold:
+        template = '[bold blue]%s[/]'
+        template %= message
+        print(template)
+    elif background:
+        styled = style(message, bg=colors.BLUE)
+        echo(styled)
+    else:
+        styled = style(message, fg=colors.BLUE)
+        echo(styled)

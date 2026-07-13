@@ -43,7 +43,7 @@ wheels = [
 
 [[package]]
 name = "nickit"
-version = "0.0.1"
+version = "0.0.7"
 source = { editable = "." }
 dependencies = [
     { name = "typer" },
