@@ -1,4 +1,4 @@
-from typer import Typer
+from typer import Typer, Argument, Option
 from subprocess import run
 from nickit.message import show_success_message
 from nickit.constants import COMMAND_SUCCESS
@@ -9,6 +9,7 @@ from .architecture import add_architecture
 from pathlib import Path
 from inspect import cleandoc
 from .settings import add_settings
+from typing import Annotated
 
 app = Typer()
 
@@ -39,9 +40,11 @@ def init_application():
 
 
 @app.command()
-def fastapi(architecture: str = ''):
+def fastapi(
+    name: Annotated[str, Argument()] = '', architecture: Annotated[str, Option()] = ''
+):
     """It's going to init a fastapi project following up a right structure"""
-    init_project()
+    init_project(name)
 
     add_ruff_settings()
     add_vscode_settings()

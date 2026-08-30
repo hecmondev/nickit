@@ -8,9 +8,9 @@ app = Typer()
 
 
 @app.command()
-def project():
+def project(name: str = ''):
     """It's going to init an empty project following up a right structure"""
-    init_project()
+    init_project(name)
 
     add_ruff_settings()
     add_vscode_settings()

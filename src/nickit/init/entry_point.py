@@ -4,12 +4,12 @@ from re import match
 from subprocess import run
 
 
-def init_project():
+def init_project(name: str = ''):
     """Checking out if uv is installed"""
     command = 'uv --version'
     result = run(command, capture_output=True, text=True, shell=True)
-
     pattern = r'^uv \d+.\d+.\d+'
+
     if not match(pattern, result.stdout):
         show_information_message('uv is not found then installing...')
         # installing uv
@@ -25,6 +25,16 @@ def init_project():
         )
 
     show_information_message('creating a new project using uv')
-    result = run('uv init', capture_output=True, text=True, shell=True)
+    command = f'uv init {name}' if name is not None else 'uv init'
+    result = run(command, capture_output=True, text=True, shell=True)
+
     if result.returncode == COMMAND_SUCCESS:
         show_success_message('project structure created')
+
+
+#    if name is not None:
+#        command = f'cd {name}'
+#        result = run(command, capture_output=True, text=True, shell=True)
+#
+#        if result.returncode == COMMAND_SUCCESS:
+#            show_success_message('moving forward into project')
