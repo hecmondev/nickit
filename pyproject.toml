@@ -1,6 +1,6 @@
 [project]
 name = "nickit"
-version = "0.0.9"
+version = "0.0.10"
 authors = [
     { name="Hector", email="hectormontoyadeveloper@gmail.com" }
 ]
@@ -8,6 +8,7 @@ description = "An interesting cli to improve the development experience on pytho
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "cactus-needle>=2.0.11",
     "typer>=0.26.8",
 ]
 classifiers = [

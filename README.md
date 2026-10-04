@@ -49,7 +49,7 @@ project name
 nic init fastapi
 
 # including architecture
-nic init fastapi <project-name>  --architecture mvc
+nic init fastapi <project-name> --architecture mvc
 ```
 
 ## how to contribute

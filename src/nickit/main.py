@@ -1,9 +1,11 @@
 from .init import app as init_app
 from .version import get_cli_version
 from .tester import add_tester
-import typer
+from typer import Typer, Argument
+from typing import Annotated
+from .model import ask
 
-app = typer.Typer()
+app = Typer()
 
 
 @app.command()
@@ -16,6 +18,12 @@ def version():
 def tester():
     """To add a nickit tester on this project"""
     add_tester()
+
+
+@app.command()
+def agent(prompt: Annotated[str, Argument()]):
+    """To ask something to the internal model"""
+    print(ask(prompt))
 
 
 app.add_typer(
