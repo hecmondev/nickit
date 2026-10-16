@@ -8,7 +8,7 @@ def show_success_message(message: str, bold=False, background=False):
         template %= message
         print(template)
     elif background:
-        styled = style(message, bg=colors.GREEN)
+        styled = style(message, bg=colors.GREEN, fg=colors.BLACK)
         echo(styled)
     else:
         styled = style(message, fg=colors.GREEN)
@@ -21,7 +21,7 @@ def show_information_message(message: str, bold=False, background=False):
         template %= message
         print(template)
     elif background:
-        styled = style(message, bg=colors.BLUE)
+        styled = style(message, bg=colors.BLUE, fg=colors.BLACK)
         echo(styled)
     else:
         styled = style(message, fg=colors.BLUE)

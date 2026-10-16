@@ -2,9 +2,9 @@ from inspect import cleandoc
 from pathlib import Path
 
 
-def add_ruff_settings():
+def add_ruff_settings(name: str):
     """Creating ruff.toml file"""
-    ruff_file_path = Path().resolve() / 'ruff.toml'
+    ruff_file_path = Path().resolve() / name / 'ruff.toml'
     with open(ruff_file_path, 'w') as file:
         ruff = """
             # Exclude a variety of commonly ignored directories.

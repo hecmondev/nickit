@@ -1,7 +1,7 @@
 from inspect import cleandoc
 from nickit.message import show_success_message
-from pathlib import Path
 from nickit.utils import add_directory
+from pathlib import Path
 
 
 def create_vscode_settings_file(vscode_directory_path: Path):
@@ -25,7 +25,7 @@ def create_vscode_settings_file(vscode_directory_path: Path):
     show_success_message('.vscode/settings.json was added successfully')
 
 
-def add_vscode_settings():
+def add_vscode_settings(name: str):
     """Adding settings file under .vscode folder"""
-    vscode_directory_path = add_directory('.vscode')
+    vscode_directory_path = add_directory(f'{name}/.vscode')
     create_vscode_settings_file(vscode_directory_path)

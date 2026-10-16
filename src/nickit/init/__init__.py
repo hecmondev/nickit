@@ -1,5 +1,5 @@
-from .project import app as project_app
 from .fastapi import app as fastapi_app
+from .project import app as project_app
 from typer import Typer
 
 app = Typer()

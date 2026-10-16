@@ -1,35 +1,40 @@
 from .init import app as init_app
-from .version import get_cli_version
-from .tester import add_tester
-from typer import Typer, Argument
-from typing import Annotated
 from .model import ask
+from .tester import app as tester_app
+from .upgrade import upgrade_cli
+from .version import get_cli_version
+from typer import Argument, Typer
+from typing import Annotated
 
 app = Typer()
 
 
 @app.command()
 def version():
-    """To get the current cli version installed"""
+    """get the current cli version installed"""
     get_cli_version()
 
 
 @app.command()
-def tester():
-    """To add a nickit tester on this project"""
-    add_tester()
+def agent(prompt: Annotated[str, Argument()]):
+    """ask something to the internal model"""
+    print(ask(prompt))
 
 
 @app.command()
-def agent(prompt: Annotated[str, Argument()]):
-    """To ask something to the internal model"""
-    print(ask(prompt))
+def upgrade():
+    """upgrade package globally"""
+    upgrade_cli()
 
 
 app.add_typer(
     init_app,
     name='init',
-    help='A set of subcommands to improve development starting a new project',
+    help='set of subcommands to improve development starting a new project',
+)
+
+app.add_typer(
+    tester_app, name='tester', help='set of subcommands to test building features'
 )
 
 
